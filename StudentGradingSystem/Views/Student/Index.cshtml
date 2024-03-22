@@ -1,0 +1,22 @@
+﻿@model IEnumerable<StudentModel>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td><a asp-action="ViewGrades" asp-route-id="@student.Id" class="btn btn-primary px-3">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

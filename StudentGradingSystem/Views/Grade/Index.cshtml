@@ -1,0 +1,17 @@
+﻿@model IEnumerable<GetAllGradeDto>
+
+<a asp-action="Create" class="btn btn-primary px-3 mb-3">Add Grade</a>
+
+<table class="table table-bordered">
+    <tbody>
+        @foreach(var grade in Model)
+        {
+            <tr>
+                <td>@grade.Id</td>
+                <td>@grade.StudentName</td>
+                <td>@grade.Subject</td>
+                <td>@grade.Score</td>
+            </tr>    
+        }
+    </tbody>
+</table>

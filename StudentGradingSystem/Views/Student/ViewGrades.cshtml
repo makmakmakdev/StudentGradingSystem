@@ -1,0 +1,37 @@
+﻿@model IEnumerable<GetStudentWithGradesResponseDto>
+
+@{
+    var studentId = Model.Any() ? Model.FirstOrDefault().Id : 0;
+    var studentName = Model.Any() ? Model.FirstOrDefault().Name : "";
+}
+
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Student Id</td>
+                <td>@studentId</td>
+            </tr>
+            <tr>
+                <td>Student Name</td>
+                <td>@studentName</td>
+            </tr>
+            @foreach (var studentGrade in Model)
+            {
+                <tr>
+                    <td>@studentGrade.Subject</td>
+                    <td>@studentGrade.Score</td>
+                </tr>
+            }
+            <tr>
+                <td>Average</td>
+                <td>@ViewData["Average"]</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No Grade Found</h1>
+}
